@@ -1,6 +1,6 @@
 <?php
 
-class CalendarEvent extends Page {
+class CalendarEvent extends ContentPage {
 	
 	private static $db = array (
 		'Recursion' => 'Boolean',
