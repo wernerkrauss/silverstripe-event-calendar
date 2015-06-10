@@ -47,4 +47,4 @@ de:
     SUBSCRIBE: $lang['de_DE']['Calendar.ss']['SUBSCRIBE']
     ADDITIONALDATES: 'Zusätzliche Daten'
   CalendarWidget:
-    LOCALEFILE: 'date_de.js'
+    LOCALEFILE: 'calendar_de.js'
