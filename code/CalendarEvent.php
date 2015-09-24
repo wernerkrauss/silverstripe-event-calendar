@@ -131,7 +131,7 @@ class CalendarEvent extends ContentPage {
 
 }
 
-class CalendarEvent_Controller extends Page_Controller {
+class CalendarEvent_Controller extends ContentPage_Controller {
 
 	public function init() {
 		parent::init();
