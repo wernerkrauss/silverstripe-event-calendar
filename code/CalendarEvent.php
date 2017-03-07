@@ -152,10 +152,14 @@ class CalendarEvent_Controller extends ContentPage_Controller {
 	}
 	
 	public function UpcomingDates($limit = 3) {
+		$today = date('Y-m-d');
 		return DataList::create($this->data()->getDateTimeClass())
 			->filter("EventID", $this->ID)
-			->where("\"StartDate\" >= DATE(NOW())")
-			->sort("\"StartDate\" ASC")
+			->filterAny([
+				'StartDate:greaterThanOrEqual' => $today,
+				'EndDate:greaterThanOrEqual' => $today
+			])
+			->sort('StartDate', 'ASC')
 			->limit($limit);
 	}
 	
@@ -178,7 +182,7 @@ class CalendarEvent_Controller extends ContentPage_Controller {
 			$datetime_obj->StartDate = $date;
 			return $cal->getNextRecurringEvents($this, $datetime_obj);
 		}
-		else {
+		if ($this->DateTimes()->Count() > 1) {
 			return DataList::create($this->data()->getDateTimeClass())
 				->filter(array(
 					"EventID" => $this->ID
