@@ -24,6 +24,9 @@ class CalendarEvent extends ContentPage {
 		'RecurringDaysOfMonth' => 'RecurringDayOfMonth'
 	);
 
+    //lumberjack
+    private static $show_in_sitetree =  false;
+
 	private static $icon = "event_calendar/images/event";	
 
 	private static $description = "An individual event entry";
